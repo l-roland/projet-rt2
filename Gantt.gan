@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="NetBox Gantt" company="" webLink="http://" view-date="2021-01-16" view-index="0" gantt-divider-location="458" resource-divider-location="300" version="3.0.3000" locale="fr_FR">
+    <description/>
+    <view zooming-state="default:0" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="235" order="0"/>
+        <field id="tpd4" name="Date de début" width="110" order="1"/>
+        <field id="tpd5" name="Date de fin" width="109" order="2"/>
+        <option id="color.recent">
+            <![CDATA[#00ff33 #000000 #999999 #ffffff]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nom" width="210" order="0"/>
+        <field id="1" name="Rôle par défaut" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="3" name="Durée du Projet" color="#000000" meeting="false" start="2021-01-18" duration="15" complete="0" thirdDate="2020-12-24" thirdDate-constraint="0" expand="true"/>
+        <task id="21" name="Réunions de projet" meeting="false" start="2021-01-18" duration="1" complete="0" expand="true">
+            <task id="6" name="Réunion 1" color="#000000" meeting="false" start="2021-01-18" duration="1" complete="0" thirdDate="2020-12-24" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="19" name="Comptes rendus" meeting="false" start="2021-01-18" duration="16" complete="35" expand="true">
+            <task id="9" name="Compte Rendu 1" color="#00ff33" meeting="false" start="2021-01-18" duration="6" complete="100" thirdDate="2020-12-24" thirdDate-constraint="0" priority="2" expand="true"/>
+            <task id="18" name="Compte Rendu 2" color="#00ff33" meeting="false" start="2021-01-25" duration="11" complete="0" thirdDate="2020-12-24" thirdDate-constraint="0" priority="2" expand="true"/>
+        </task>
+        <task id="23" name="Documentation du projet" meeting="false" start="2021-01-18" duration="16" complete="0" expand="true">
+            <task id="30" name="Netbox" meeting="false" start="2021-01-18" duration="16" complete="0" expand="true"/>
+            <task id="25" name="Tuleap" color="#8cb6ce" meeting="false" start="2021-02-04" duration="3" complete="0" thirdDate="2021-02-04" thirdDate-constraint="0" expand="true"/>
+            <task id="24" name="Gantt" color="#999999" meeting="false" start="2021-02-05" duration="2" complete="0" thirdDate="2021-02-08" thirdDate-constraint="0" expand="true"/>
+            <task id="26" name="Burndown Chart" color="#8cb6ce" meeting="false" start="2021-02-05" duration="2" complete="0" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="31" name="Idée de projet" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true">
+            <task id="32" name="Analyse du besoin" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true"/>
+            <task id="33" name="Analyse de l'existant" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true"/>
+            <task id="34" name="Recherche d'une problématique" color="#8cb6ce" meeting="false" start="2021-02-08" duration="1" complete="0" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+            <task id="36" name="Recherche de solutions" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true"/>
+            <task id="37" name="Répartition des tâches" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="Thomas" function="Default:0" contacts="" phone=""/>
+        <resource id="1" name="Louis" function="Default:0" contacts="" phone=""/>
+        <resource id="2" name="Enzo" function="Default:0" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="3" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="6" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="24" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="6" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="6" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
