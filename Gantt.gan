@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="NetBox Gantt" company="" webLink="http://" view-date="2021-01-16" view-index="0" gantt-divider-location="458" resource-divider-location="300" version="3.0.3000" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="NetBox Gantt" company="" webLink="http://" view-date="2021-01-11" view-index="0" gantt-divider-location="567" resource-divider-location="300" version="3.0.3000" locale="fr_FR">
     <description/>
-    <view zooming-state="default:0" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="235" order="0"/>
-        <field id="tpd4" name="Date de début" width="110" order="1"/>
-        <field id="tpd5" name="Date de fin" width="109" order="2"/>
+    <view zooming-state="default:6" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="257" order="0"/>
+        <field id="tpd4" name="Date de début" width="146" order="1"/>
+        <field id="tpd5" name="Date de fin" width="145" order="2"/>
         <option id="color.recent">
-            <![CDATA[#00ff33 #000000 #999999 #ffffff]]>
+            <![CDATA[#006600 #ff33ff #ff3333 #00ff33 #660066 #00cccc #3333ff #ff9933 #00ffff #f4f4f4]]>
         </option>
     </view>
     <view id="resource-table">
@@ -36,26 +36,53 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="3" name="Durée du Projet" color="#000000" meeting="false" start="2021-01-18" duration="15" complete="0" thirdDate="2020-12-24" thirdDate-constraint="0" expand="true"/>
-        <task id="21" name="Réunions de projet" meeting="false" start="2021-01-18" duration="1" complete="0" expand="true">
-            <task id="6" name="Réunion 1" color="#000000" meeting="false" start="2021-01-18" duration="1" complete="0" thirdDate="2020-12-24" thirdDate-constraint="0" expand="true"/>
+        <task id="3" name="Durée du Projet" color="#000000" meeting="false" start="2021-01-18" duration="46" complete="0" thirdDate="2020-12-24" thirdDate-constraint="0" expand="true"/>
+        <task id="21" name="Réunions de projet" color="#3333ff" meeting="false" start="2021-01-18" duration="34" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true">
+            <task id="6" name="Réunion Mr Pouchoulon 1" color="#3333ff" meeting="false" start="2021-01-18" duration="1" complete="100" thirdDate="2020-12-24" thirdDate-constraint="0" expand="true"/>
+            <task id="42" name="Réunion Mr Pouchoulon 2" color="#3333ff" meeting="false" start="2021-03-04" duration="1" complete="100" thirdDate="2021-01-15" thirdDate-constraint="0" expand="true"/>
+            <task id="44" name="Réunion CRI 1" color="#3333ff" meeting="false" start="2021-03-04" duration="1" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="19" name="Comptes rendus" meeting="false" start="2021-01-18" duration="16" complete="35" expand="true">
+        <task id="92" name="Serveur distant" color="#006600" meeting="false" start="2021-01-18" duration="46" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true">
+            <task id="93" name="Install &amp; Config" color="#006600" meeting="false" start="2021-01-18" duration="21" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+            <task id="94" name="Nom de domaine" color="#006600" meeting="false" start="2021-02-16" duration="4" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+            <task id="96" name="Sous-domaines" color="#006600" meeting="false" start="2021-03-01" duration="5" complete="100" thirdDate="2021-03-01" thirdDate-constraint="0" expand="true"/>
+            <task id="91" name="Transfert de Netbox" color="#006600" meeting="false" start="2021-03-08" duration="11" complete="100" thirdDate="2021-03-08" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="19" name="Comptes rendus" color="#00ff33" meeting="false" start="2021-01-18" duration="46" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true">
             <task id="9" name="Compte Rendu 1" color="#00ff33" meeting="false" start="2021-01-18" duration="6" complete="100" thirdDate="2020-12-24" thirdDate-constraint="0" priority="2" expand="true"/>
-            <task id="18" name="Compte Rendu 2" color="#00ff33" meeting="false" start="2021-01-25" duration="11" complete="0" thirdDate="2020-12-24" thirdDate-constraint="0" priority="2" expand="true"/>
+            <task id="18" name="Compte Rendu 2" color="#00ff33" meeting="false" start="2021-01-25" duration="11" complete="100" thirdDate="2020-12-24" thirdDate-constraint="0" priority="2" expand="true"/>
+            <task id="38" name="Compte Rendu 3" color="#00ff33" meeting="false" start="2021-02-08" duration="11" complete="100" thirdDate="2021-02-08" thirdDate-constraint="0" expand="true"/>
+            <task id="47" name="Compte Rendu 4" color="#00ff33" meeting="false" start="2021-02-22" duration="11" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+            <task id="99" name="Compte Rendu 5" color="#00ff33" meeting="false" start="2021-03-08" duration="11" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="23" name="Documentation du projet" meeting="false" start="2021-01-18" duration="16" complete="0" expand="true">
-            <task id="30" name="Netbox" meeting="false" start="2021-01-18" duration="16" complete="0" expand="true"/>
-            <task id="25" name="Tuleap" color="#8cb6ce" meeting="false" start="2021-02-04" duration="3" complete="0" thirdDate="2021-02-04" thirdDate-constraint="0" expand="true"/>
-            <task id="24" name="Gantt" color="#999999" meeting="false" start="2021-02-05" duration="2" complete="0" thirdDate="2021-02-08" thirdDate-constraint="0" expand="true"/>
-            <task id="26" name="Burndown Chart" color="#8cb6ce" meeting="false" start="2021-02-05" duration="2" complete="0" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+        <task id="23" name="Documentation du projet" color="#ff3333" meeting="false" start="2021-01-18" duration="46" complete="60" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true">
+            <task id="30" name="Netbox" color="#ff3333" meeting="false" start="2021-01-18" duration="25" complete="60" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+            <task id="25" name="Tuleap" color="#ff3333" meeting="false" start="2021-02-04" duration="13" complete="71" thirdDate="2021-02-04" thirdDate-constraint="0" expand="true"/>
+            <task id="24" name="Gantt" color="#ff3333" meeting="false" start="2021-02-05" duration="22" complete="50" thirdDate="2021-02-08" thirdDate-constraint="0" expand="true"/>
+            <task id="26" name="Burndown Chart" color="#ff3333" meeting="false" start="2021-02-05" duration="22" complete="45" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+            <task id="97" name="HTTP/HTTPS" color="#ff3333" meeting="false" start="2021-03-08" duration="6" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+            <task id="98" name="Traefik" color="#ff3333" meeting="false" start="2021-03-15" duration="6" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="31" name="Idée de projet" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true">
-            <task id="32" name="Analyse du besoin" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true"/>
-            <task id="33" name="Analyse de l'existant" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true"/>
-            <task id="34" name="Recherche d'une problématique" color="#8cb6ce" meeting="false" start="2021-02-08" duration="1" complete="0" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
-            <task id="36" name="Recherche de solutions" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true"/>
-            <task id="37" name="Répartition des tâches" meeting="false" start="2021-02-08" duration="1" complete="0" expand="true"/>
+        <task id="31" name="Idée de projet" color="#ff9933" meeting="false" start="2021-02-08" duration="11" complete="100" thirdDate="2021-02-08" thirdDate-constraint="0" expand="true">
+            <task id="34" name="Recherche d'une problématique" color="#ff9933" meeting="false" start="2021-02-08" duration="5" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true"/>
+            <task id="36" name="Recherche de solutions" color="#ff9933" meeting="false" start="2021-02-08" duration="5" complete="100" thirdDate="2021-02-08" thirdDate-constraint="0" expand="true"/>
+            <task id="32" name="Analyse du besoin" color="#ff9933" meeting="false" start="2021-02-15" duration="5" complete="100" thirdDate="2021-02-15" thirdDate-constraint="0" expand="true"/>
+            <task id="33" name="Analyse de l'existant" color="#ff9933" meeting="false" start="2021-02-15" duration="5" complete="100" thirdDate="2021-02-15" thirdDate-constraint="0" expand="true"/>
+            <task id="37" name="Répartition des tâches" color="#ff9933" meeting="false" start="2021-02-08" duration="11" complete="100" thirdDate="2021-02-08" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="39" name="Netbox VM" color="#00cccc" meeting="false" start="2021-02-15" duration="6" complete="100" thirdDate="2021-02-15" thirdDate-constraint="0" expand="true">
+            <task id="40" name="Installation sur VM" color="#00cccc" meeting="false" start="2021-02-15" duration="5" complete="100" thirdDate="2021-02-15" thirdDate-constraint="0" expand="true"/>
+            <task id="41" name="Configuration sur VM" color="#00cccc" meeting="false" start="2021-02-19" duration="2" complete="100" thirdDate="2021-02-19" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="61" name="Netbox IUT" color="#660066" meeting="false" start="2021-03-01" duration="5" complete="100" thirdDate="2021-01-25" thirdDate-constraint="0" expand="true">
+            <task id="49" name="Mise en place de Docker" color="#660066" meeting="false" start="2021-03-01" duration="5" complete="100" thirdDate="2021-01-25" thirdDate-constraint="0" expand="true"/>
+            <task id="54" name="Netbox docker-compose.yml" color="#660066" meeting="false" start="2021-03-01" duration="5" complete="100" thirdDate="2021-01-25" thirdDate-constraint="0" expand="true"/>
+            <task id="58" name="Premiers tests" color="#660066" meeting="false" start="2021-03-01" duration="5" complete="100" thirdDate="2021-01-25" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="89" name="Netbox HTTPS" color="#ff33ff" meeting="false" start="2021-03-08" duration="11" complete="100" thirdDate="2021-01-18" thirdDate-constraint="0" expand="true">
+            <task id="103" name="Tests Apache" color="#ff33ff" meeting="false" start="2021-03-08" duration="3" complete="100" thirdDate="2021-02-01" thirdDate-constraint="0" expand="true"/>
+            <task id="104" name="Container Traefik" color="#ff33ff" meeting="false" start="2021-03-11" duration="4" complete="100" thirdDate="2021-02-01" thirdDate-constraint="0" expand="true"/>
+            <task id="106" name="Container Netbox" color="#ff33ff" meeting="false" start="2021-03-17" duration="4" complete="100" thirdDate="2021-02-01" thirdDate-constraint="0" expand="true"/>
         </task>
     </tasks>
     <resources>
