@@ -21,18 +21,6 @@ services:
       - "traefik.http.routers.api.tls.certresolver=lroland"
       - "traefik.http.middlewares.auth.basicauth.users=louis:$$apr1$$hL7R6q.E$$zhA1O2iyH6MWR6ZRpX1CU."
 
-      #- "traefik.http.routers.md.entrypoints=https"
-      #- "traefik.http.routers.md.rule=Host(`codimd.lroland.fr`)"
-      #- "traefik.http.routers.md.service=md@file"
-      #- "traefik.http.routers.md.tls=true"
-      #- "traefik.http.routers.md.tls.certresolver=lroland"
-
-     # - "traefik.http.routers.netbox.entrypoints=https"
-     # - "traefik.http.routers.netbox.rule=Host(`netbox.lroland.fr`)"
-     # - "traefik.http.routers.netbox.service=netbox@file"
-     # - "traefik.http.routers.netbox.tls=true"
-     # - "traefik.http.routers.netbox.tls.certresolver=lroland"
-      
     networks:
       - oueb
       - default
