@@ -1,11 +1,1 @@
-[http]
-  [http.services]
-    [http.services.md]
-      [http.services.md.loadBalancer]
-        [[http.services.md.loadBalancer.servers]]
-          url = "http://lroland.fr:3000"
 
-    [http.services.netbox]
-      [http.services.netbox.loadBalancer]
-        [[http.services.netbox.loadBalancer.servers]]
-          url = "http://lroland.fr:8000"
