@@ -1,16 +1,15 @@
 #!/bin/bash
-#chmod +x classNetwork.sh
 
 #link to netbox service
 netbox="https://netbox.lroland.fr/api/"
 
 #url user input
-echo "$netbox  <- Insert an url"
-read url
+echo "Insert an url"
+read -p "$netbox" url
 
 #combine netbox service to url and print
 link=${netbox}${url}
-echo $link;echo
+echo
 
 #http request user input
 echo "HTTP REQUEST : GET - POST - PATCH - DELETE"
@@ -32,17 +31,17 @@ fi
 if [ $request = "POST" ]
 then
     #classroom number
-    echo "Number of the classroom?"
-    read classroom
+    read -p "Classroom number? " classroom;echo
 
     #number of machines
-    echo "How many machines in the classroom?"
-    read machine
+    read -p "How many machines? " machine;echo
 
     #machine per machine
     for num in `seq 1 $machine`; do 
         #ip address 
         ip="10.${classroom}.${num}.1/24"
+
+        #send to netbox
         curl -X $request $link \
             -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
             -H "Content-Type: application/json" \
@@ -60,50 +59,62 @@ fi
 #if user input = patch
 if [ $request = "PATCH" ]
 then
-    echo "Insert number of IDs"
-    read idnum
+    #insert id number
+    read -p "Insert number of IDs : " idnum
 
     #if id number = 1
     if [ $idnum = "1" ]
     then
-        echo "Insert ID"
-        read id
+        #insert id
+        read -p "Insert ID : " id;echo
 
-        echo "Type here what to modify"
-        read opt
+        #what object to change
+        read -p "Type here what to modify : " opt;echo
 
-        if [ $opt = "RESERVED" ]
+        #if user input = R -> "status": "reserved"
+        if [ $opt = "R" ]
         then
+            #send to netbox
             curl -X $request -s ${link}/${id}/ \
             -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
             -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
             --data '{"status": "reserved"}' | jq '.'
         fi
 
-        if [ $opt = "ACTIVE" ]
+        #if user input = A -> "status": "active"
+        if [ $opt = "A" ]
         then
+            #send to netbox
             curl -X $request -s ${link}/${id}/ \
             -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
             -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
             --data '{"status": "active"}' | jq '.'
         fi
-    #if id number !=0
-    else
-        for k in `seq 1 $idnum`; do
-            read -p "Enter number of ID($k) : " idtf[$k]
-            echo "Type here what to modify"
-            read opt
 
-            if [ $opt = "RESERVED" ]
+    #if id number !=1
+    else
+        #for 1 to id number
+        for k in `seq 1 $idnum`; do
+            #user input id
+            read -p "ID($k) : " idtf[$k];echo
+
+            #what object to change
+            read -p "Type here what to modify : " opt;echo
+
+            #if user input = R -> "status": "reserved"
+            if [ $opt = "R" ]
             then
+                #send to netbox
                 curl -X $request -s ${link}/${idtf[$k]}/ \
                 -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
                 -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
                 --data '{"status": "reserved"}' | jq '.'
             fi
 
-            if [ $opt = "ACTIVE" ]
+            #if user input = A -> "status": "active"
+            if [ $opt = "A" ]
             then
+                #send to netbox
                 curl -X $request -s ${link}/${idtf[$k]}/ \
                 -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
                 -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
@@ -117,26 +128,34 @@ fi
 #if user input = patch
 if [ $request = "DELETE" ]
 then
-    echo "Insert number of IDs"
-    read idnum
+    #user input id number
+    read -p "Insert number of IDs : " idnum;echo
 
     #if id number = 1
     if [ $idnum = "1" ]
     then
-        echo "Insert ID"
-        read id
+        #user input id
+        read -p "ID : " id
 
+        #send to netbox
         curl -X DELETE -s https://netbox.lroland.fr/api/ipam/ip-addresses/${id}/ \
             -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567"
         
+        #print removed
         echo Removed
-    #if id number !=0
+
+    #if id number !=1
     else
+        #for 1 to id number
         for l in `seq 1 $idnum`; do
-            read -p "Enter number of ID($l) : " ident[$l]
+            #user input id
+            read -p "ID($l) : " ident[$l]
+
+            #send to netbox
             curl -X DELETE -s https://netbox.lroland.fr/api/ipam/ip-addresses/${ident[$l]}/ \
                 -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567"
 
+            #print removed
             echo Removed
         done
     fi
