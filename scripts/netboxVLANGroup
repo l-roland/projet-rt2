@@ -1,0 +1,217 @@
+#!/bin/bash
+
+#link to netbox service
+link="https://netbox.lroland.fr/api/ipam/vlan-groups/"
+
+#list existing groups
+res=`curl -X GET -s $link -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" -H "Content-Type: application/json" -H "Accept: application/json; indent=4" | jq '.results[] | [.name,.id]'`
+echo "[Group name, Group ID] : "
+echo $res;echo
+
+#http request user input
+echo "HTTP REQUEST : GET - POST - PATCH - DELETE"
+echo "GET - Retrieve an object or list of objects"
+echo "POST - Create an object"
+echo "PATCH - Modify an existing object"
+echo "DELETE - Delete an existing object" 
+read request
+echo
+
+#if user input = get
+if [ $request = "GET" ]
+then
+    curl -X $request -s $link -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" -H "Content-Type: application/json" -H "Accept: application/json; indent=4" | jq '.'    
+    
+fi
+
+#if user input = post
+if [ $request = "POST" ]
+then
+    #classroom number
+    read -p "Group name? " postName;echo
+
+    #number of machines
+    read -p "Group slug? " postSlug;echo
+
+    #number of machines
+    read -p "Group site? " postSite;echo
+
+    #number of machines
+    read -p "Group description? " postAbout;echo
+
+
+
+    #send to netbox
+    curl -X $request $link \
+        -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
+        -H "Content-Type: application/json" \
+        -H "Accept: application/json; indent=4" \
+        --data '{
+            "name": "'$postName'",
+            "slug": "'$postSlug'",
+            "site": "'$postSite'",
+            "description": "'$postAbout'"
+        }'
+
+fi
+
+#if user input = patch
+if [ $request = "PATCH" ]
+then
+    #insert id number
+    read -p "Insert number of IDs : " idnum
+
+    #if id number = 1
+    if [ $idnum = "1" ]
+    then
+        #insert id
+        read -p "Insert ID : " id;echo
+
+        #what object to change
+        read -p 'Type here what to modify (name, slug, site, about) : ' opt;echo
+
+        #if user input = name -> "name": userinput
+            if [ $opt = "name" ]
+            then
+                #what object to change
+                read -p 'Type here the new name : ' patchName;echo
+
+                #send to netbox
+                curl -X $request -s ${link}/${id}/ \
+                -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
+                -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
+                --data '{"name": "'$patchName'"}' | jq '.'
+            fi
+
+            if [ $opt = "slug" ]
+            then
+                #what object to change
+                read -p 'Type here the new slug : ' patchSlug;echo
+
+                #send to netbox
+                curl -X $request -s ${link}/${id}/ \
+                -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
+                -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
+                --data '{"slug": "'$patchSlug'"}' | jq '.'
+            fi
+
+            if [ $opt = "site" ]
+            then
+                #what object to change
+                read -p 'Type here the new site : ' patchSite;echo
+
+                #send to netbox
+                curl -X $request -s ${link}/${id}/ \
+                -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
+                -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
+                --data '{"site": "'$patchSite'"}' | jq '.'
+            fi
+
+            if [ $opt = "about" ]
+            then
+                #what object to change
+                read -p 'Type here the new description : ' patchAbout;echo
+
+                #send to netbox
+                curl -X $request -s ${link}/${id}/ \
+                -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
+                -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
+                --data '{"description": "'$patchAbout'"}' | jq '.'
+            fi
+    else
+        #for 1 to id number
+        for k in `seq 1 $idnum`; do
+            #user input id
+            read -p "ID($k) : " idtf[$k];echo
+
+            #what object to change
+            read -p 'Type here what to modify (name, slug, site, about) : ' opt;echo
+        
+            #if user input = name -> "name": userinput
+            if [ $opt = "name" ]
+            then
+                #what object to change
+                read -p 'Type here the new name : ' patchName;echo
+
+                #send to netbox
+                curl -X $request -s ${link}/${id}/ \
+                -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
+                -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
+                --data '{"name": "'$patchName'"}' | jq '.'
+            fi
+
+            if [ $opt = "slug" ]
+            then
+                #what object to change
+                read -p 'Type here the new slug : ' patchSlug;echo
+
+                #send to netbox
+                curl -X $request -s ${link}/${id}/ \
+                -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
+                -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
+                --data '{"slug": "'$patchSlug'"}' | jq '.'
+            fi
+
+            if [ $opt = "site" ]
+            then
+                #what object to change
+                read -p 'Type here the new site : ' patchSite;echo
+
+                #send to netbox
+                curl -X $request -s ${link}/${id}/ \
+                -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
+                -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
+                --data '{"site": "'$patchSite'"}' | jq '.'
+            fi
+
+            if [ $opt = "about" ]
+            then
+                #what object to change
+                read -p 'Type here the new description : ' patchAbout;echo
+
+                #send to netbox
+                curl -X $request -s ${link}/${id}/ \
+                -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567" \
+                -H "Content-Type: application/json" -H "Accept: application/json; indent=4" \
+                --data '{"description": "'$patchAbout'"}' | jq '.'
+            fi
+
+        done
+    fi
+fi
+
+#if user input = patch
+if [ $request = "DELETE" ]
+then
+    #user input id number
+    read -p "Insert number of IDs : " idnum;echo
+
+    #if id number = 1
+    if [ $idnum = "1" ]
+    then
+        #user input id
+        read -p "ID : " id
+
+        #send to netbox
+        curl -X DELETE -s ${link}/${id}/ \
+            -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567"
+        
+        #print removed
+        echo Removed
+
+    #if id number !=1
+    else
+        #for 1 to id number
+        for l in `seq 1 $idnum`; do
+            #user input id
+            read -p "ID($l) : " ident[$l]
+
+            #send to netbox
+            curl -X DELETE -s ${link}/${ident[$l]}/ \
+                -H "Authorization: Token 0123456789abcdef0123456789abcdef01234567"
+
+            #print removed
+            echo Removed
+        done
+    fi
+fi
